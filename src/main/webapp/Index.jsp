@@ -57,12 +57,19 @@
 					<input class="form-control me-2" type="search"
 						placeholder="Nội dung tìm kiếm" aria-label="Search">
 					<button class="btn btn-outline-success" type="submit">Tìm</button>
-					<% khachHang khachHang = (khachHang) request.getAttribute("khachHang");
+					<% khachHang khachHang = (khachHang) session.getAttribute("khachHang");
 						if(khachHang==null){
 					%>
-					<a class="btn btn-primary" style="white-space:nowrap;" href="dangnhap.jsp">Đăng nhập</a>
+					<a class="btn btn-primary" style="white-space:nowrap;" href="dangnhap.jsp">
+					Đăng nhập
+					</a>
 					<% }
-						else{application%>
+						else{
+							%>
+							<a class="btn btn-primary" style="white-space:nowrap;">
+							Xin chào <%= khachHang.getHoVaTen()  %>!
+							</a>
+						<% } %>
 				</form>
 			</div>
 		</div>

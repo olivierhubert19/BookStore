@@ -32,14 +32,14 @@ public class xuLyDangNhap extends HttpServlet {
 		String Password = request.getParameter("Password");
 		String url="";
 		khachHang khachHang = KhachHangDAO.GetNew().ContainsAccount(tenDangNhap, Password);
-		if(khachHang==null) {
+		if(khachHang!=null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("khachHang", khachHang);
-			url = "/index.jsp";
+			url = "/Index.jsp";
 		}
 		else {
 			request.setAttribute("baoLoi", "Ten dang nhap hoac mat khau khong dung vui long nhap lai");
-			url="dangnhap.jsp";
+			url="/dangnhap.jsp";
 		}
 		RequestDispatcher rDispatcher = getServletContext().getRequestDispatcher(url);
 		rDispatcher.forward(request, response);

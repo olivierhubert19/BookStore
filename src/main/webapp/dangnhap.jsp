@@ -22,6 +22,8 @@
 <%
 String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 		+ request.getContextPath();
+String baoLoi = request.getAttribute("baoLoi")+"";
+if(baoLoi.equals("null")) baoLoi="";
 %>
 <!-- Custom styles for this template -->
 <link href="<%=url%>/css/sign-in.css" rel="stylesheet">
@@ -32,7 +34,7 @@ String url = request.getScheme() + "://" + request.getServerName() + ":" + reque
 			<img class="mb-4" src="<%=url%>/img/logo/book.png" alt=""
 				width="90">
 			<h1 class="h3 mb-3 fw-normal">Đăng nhập</h1>
-
+			<div class="text-center text-danger"><%= baoLoi %></div>
 			<div class="form-floating">
 				<input type="text" class="form-control" id="tenDangNhap"
 					placeholder="Tên đăng nhập" name="tenDangNhap"> <label for="tenDangNhap">Tên

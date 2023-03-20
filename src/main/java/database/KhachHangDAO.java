@@ -41,6 +41,8 @@ public class KhachHangDAO implements DAOinterface<khachHang> {
 		pst.setString(1, tenDangNhap);
 		pst.setString(2, matKhauString);
 		ResultSet rs = pst.executeQuery();
+		
+		if (rs.next()) {
 			String makhachHang = rs.getString("makhachHang");
 			String hovaten = rs.getString("hovaten");
 			String gioitinh = rs.getString("gioitinh");
@@ -49,11 +51,11 @@ public class KhachHangDAO implements DAOinterface<khachHang> {
 			String sodienthoai = rs.getString("sodienthoai");
 			String email = rs.getString("email");
 			String dangkinhanemail = rs.getString("dangkinhanemail");
-		if(makhachHang==null) {
-			return null;
+			return (new khachHang(makhachHang, tenDangNhap, matKhauString, hovaten, gioitinh, diachi, ngaysinh,
+					sodienthoai, email, dangkinhanemail));
 		}
-		else return new khachHang(makhachHang, tenDangNhap, matKhauString, hovaten, gioitinh, diachi, ngaysinh,
-				sodienthoai, email, dangkinhanemail);
+		return null;
+		
 	}
 	catch (Exception e) {
 		// TODO: handle exception
