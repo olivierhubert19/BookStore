@@ -1,0 +1,12 @@
+user
+	+ Khách hàng:
+		- Đăng kí, Đăng nhập, Đăng xuất
+		- Xem sp
+		- Tìm kiếm 
+		- Thêm sp vào giỏ
+		- Các bước thanh toán 
+		- Thay đổi thông tin 
+		- Xem lại đơn hàng cũ
+	+ Quản trị 
+	
+	+Nhân viên

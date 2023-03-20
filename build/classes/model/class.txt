@@ -1,0 +1,58 @@
+-	Sách:
+	+	Tên sách
+	+	Id
+	+	Năm xuất bản 
+	+	Số lượng
+	+	Giá nhập
+	+	Giá bán
+	+	Thể loại
+	+	Nhà sản xuất 
+	+ 	Mô tả
+	
+- 	Nhà tác giả:
+	+ 	Id
+	+	Họ và Tên
+	+	Ngày Sinh
+
+-	Thể loại
+	+	Id
+	+ 	Tên thể loại
+	
+
+-	Khách hàng:
+	+	Id
+	+	Tên đăng nhập
+	+	Mật khẩu
+	+	Họ và tên
+	+	Giới tính
+	+	Ngày sinh
+	+	Số điện thoại
+	+	Địa chỉ email
+	+	Địa chỉ nhận hàng
+	
+- 	Đơn hàng:
+	+ 	Id
+	+	Khách hàng
+	+	Địa chỉ nhận hàng
+	+ 	Trạng thái: đang xử lý, đang giao hàng, đã giao hàng thành công
+	+	Hình thức thanh toán
+	+	Trang thái thanh toán
+	+	Số tiền đã thanh toán
+	+ 	Giảm giá
+	+	Ngày đặt hàng
+	+	Ngày giao hàng
+	
+-	Chi tiết đơn hàng:
+	+	Id 
+	+ 	Đơn hàng
+	+	Mã sách
+	+	Số lượng
+	+	Giá bìa
+	+	Giá bán
+	+	Giảm giá
+	+ 	Tổng tiền
+	
+	
+	
+	
+	

@@ -1,0 +1,6 @@
+DAO:
+select
+selectbyId
+insert
+delete
+update
