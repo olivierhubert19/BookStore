@@ -2,18 +2,14 @@ package controller;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.khachHang;
+import util.MaHoa;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-
 import database.KhachHangDAO;
 
 /**
@@ -58,6 +54,7 @@ public class xuLyDangKi extends HttpServlet {
 			rDispatcher.forward(request, response);
 		}
 		else {
+			matKhau = MaHoa.toSHA1(matKhau);
 			String maKhachHangString = String.valueOf(System.currentTimeMillis()) ;
 			khachHang khachHang = new khachHang(maKhachHangString, tenDangNhap, matKhau, hoVaTen, gioiTinh, diaChi,Date.valueOf(ngaySinh) , soDienThoai, email, dongYNhanMailString);
 			KhachHangDAO.GetNew().insert(khachHang);

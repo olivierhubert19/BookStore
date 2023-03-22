@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.khachHang;
+import util.MaHoa;
 
 import java.io.IOException;
 
@@ -30,6 +31,7 @@ public class xuLyDangNhap extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String tenDangNhap = request.getParameter("tenDangNhap");
 		String Password = request.getParameter("Password");
+		Password = MaHoa.toSHA1(Password);
 		String url="";
 		khachHang khachHang = KhachHangDAO.GetNew().ContainsAccount(tenDangNhap, Password);
 		if(khachHang!=null) {
