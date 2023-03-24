@@ -49,4 +49,14 @@
     <servlet-name>xuLyDangXuat</servlet-name>
     <url-pattern>/xuLyDangXuat</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>xuLyThayDoiThongTin</display-name>
+    <servlet-name>xuLyThayDoiThongTin</servlet-name>
+    <servlet-class>controller.xuLyThayDoiThongTin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>xuLyThayDoiThongTin</servlet-name>
+    <url-pattern>/xuLyThayDoiThongTin</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -12,7 +12,7 @@ public class KhachHangDAO implements DAOinterface<khachHang> {
 	public static KhachHangDAO GetNew() {
 		return new KhachHangDAO();
 	}
-	
+
 	public int ChanggeMatKhau(String tenDangNhap,String matKhauMoi) {
 		try {
 			Connection con = JDBCUtil.getConnection();
@@ -20,6 +20,21 @@ public class KhachHangDAO implements DAOinterface<khachHang> {
 			PreparedStatement pst = con.prepareStatement(sql);
 			pst.setString(1, matKhauMoi);
 			pst.setString(2, tenDangNhap);
+			int rs = pst.executeUpdate();
+			String check = "";
+			return rs;
+		} catch (Exception e) {
+		}
+		return 0;
+	}
+	public int ChanggeInfor(String tenDangNhap,String thongtinDoi,String thongTinMoi) {
+		try {
+			Connection con = JDBCUtil.getConnection();
+			String sql = "UPDATE khachhang SET "+thongtinDoi+"=? WHERE tendangnhap = ?";
+			PreparedStatement pst = con.prepareStatement(sql);
+			pst.setString(1, thongTinMoi); 
+			pst.setString(2, tenDangNhap);
+			System.out.println(pst.toString());
 			int rs = pst.executeUpdate();
 			String check = "";
 			return rs;

@@ -34,12 +34,9 @@ public class xuLyDoiMatKhau extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		khachHang khachHang =(khachHang) session.getAttribute("khachHang");
-		System.out.println(khachHang.getMatKhau());
 		String matKhauHienTai = request.getParameter("matKhauHienTai");
-		System.out.println(matKhauHienTai);
 		String matKhauMoi = request.getParameter("matKhauMoi");
 		matKhauHienTai = MaHoa.toSHA1(matKhauHienTai);
-		System.out.println(matKhauHienTai);
 		String url;
 		if(!khachHang.getMatKhau().equals(matKhauHienTai)) {
 			url="/doimatkhau.jsp";
