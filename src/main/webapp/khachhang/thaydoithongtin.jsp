@@ -66,7 +66,8 @@
 	</div>
 	<hr>
 	<div class="col-6 container">
-		<form action="xuLyThayDoiThongTin" class="form" method="post">
+		<form action="../khach-hang" class="form" method="post">
+		<input type="hidden" name="hanhDong" value="thay-doi-thong-tin">
 			<div class="row">
 				<div class="col-md-6">
 					<h3>Thông tin tài khoản</h3>
@@ -81,7 +82,7 @@
 							class="form-control" id="soDienThoai" name="soDienThoai" required value=<%= soDienThoai %> >
 					</div>
 					<div class="text-danger"><%= baoLoiString %></div>
-					
+					</div>
 				<div class="col-md-6">
 					<div class="text">
 						<h3>Thông tin khách hàng</h3>

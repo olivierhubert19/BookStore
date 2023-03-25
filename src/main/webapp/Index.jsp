@@ -60,7 +60,7 @@
 					<% khachHang khachHang = (khachHang) session.getAttribute("khachHang");
 						if(khachHang==null){
 					%>
-					<a class="btn btn-primary" style="white-space:nowrap;" href="dangnhap.jsp">
+					<a class="btn btn-primary" style="white-space:nowrap;" href="khachhang/dangnhap.jsp">
 					Đăng nhập
 					</a>
 					<% }
@@ -72,10 +72,10 @@
 								<ul class="dropdown-menu">
 									<li><a class="dropdown-item" href="#">Đơn hàng của tôi</a></li>
 									<li><a class="dropdown-item" href="#">Thông báo</a></li>
-									<li><a class="dropdown-item" href="thaydoithongtin.jsp">Thay đổi thông tin</a></li>
-									<li><a class="dropdown-item" href="doimatkhau.jsp">Đổi mật khẩu</a></li>
+									<li><a class="dropdown-item" href="khachhang/thaydoithongtin.jsp">Thay đổi thông tin</a></li>
+									<li><a class="dropdown-item" href="khachhang/doimatkhau.jsp">Đổi mật khẩu</a></li>
 									<li><hr class="dropdown-divider"></li>
-									<li><a class="dropdown-item" href="dang-xuat">Thoát tài khoản</a></li>
+									<li><a class="dropdown-item" href="khach-hang?hanhDong=dang-xuat">Thoát tài khoản</a></li>
 								</ul></li>
 						</ul>				
 						<% 

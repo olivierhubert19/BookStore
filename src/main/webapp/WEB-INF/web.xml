@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="5.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" version="5.0">
   <servlet>
     <description></description>
-    <display-name>xuLyDangKi</display-name>
-    <servlet-name>xuLyDangKi</servlet-name>
-    <servlet-class>controller.xuLyDangKi</servlet-class>
+    <display-name>KhachHangController</display-name>
+    <servlet-name>KhachHangController</servlet-name>
+    <servlet-class>controller.KhachHangController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>xuLyDangKi</servlet-name>
-    <url-pattern>/xuLyDangKi</url-pattern>
+    <servlet-name>KhachHangController</servlet-name>
+    <url-pattern>/khach-hang</url-pattern>
   </servlet-mapping>
   <display-name>BookStore</display-name>
   <welcome-file-list>
@@ -20,43 +20,27 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <description></description>
-    <display-name>xuLyDangNhap</display-name>
+    <servlet-name>xuLyDangKi</servlet-name>
+    <servlet-class>controller.xuLyDangKi</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>xuLyDangXuat</servlet-name>
+    <servlet-class>controller.xuLyDangXuat</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>xuLyThayDoiThongTin</servlet-name>
+    <servlet-class>controller.xuLyThayDoiThongTin</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>xuLyDoiMatKhau</servlet-name>
+    <servlet-class>controller.xuLyDoiMatKhau</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>xuLyDangNhap</servlet-name>
     <servlet-class>controller.xuLyDangNhap</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>xuLyDangNhap</servlet-name>
-    <url-pattern>/xuLyDangNhap</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>xuLyDoiMatKhau</display-name>
-    <servlet-name>xuLyDoiMatKhau</servlet-name>
-    <servlet-class>controller.xuLyDoiMatKhau</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>xuLyDoiMatKhau</servlet-name>
-    <url-pattern>/xuLyDoiMatKhau</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>xuLyDangXuat</display-name>
     <servlet-name>xuLyDangXuat</servlet-name>
-    <servlet-class>controller.xuLyDangXuat</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>xuLyDangXuat</servlet-name>
-    <url-pattern>/xuLyDangXuat</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>xuLyThayDoiThongTin</display-name>
-    <servlet-name>xuLyThayDoiThongTin</servlet-name>
-    <servlet-class>controller.xuLyThayDoiThongTin</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>xuLyThayDoiThongTin</servlet-name>
-    <url-pattern>/xuLyThayDoiThongTin</url-pattern>
+    <url-pattern>/dang-xuat</url-pattern>
   </servlet-mapping>
 </web-app>

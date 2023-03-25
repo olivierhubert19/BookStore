@@ -34,7 +34,6 @@
 			 document.getElementById("loiMatKhauNhapLai").innerHTML="";
 			 KiemTraDieuKhoan();
 		}
-
 	}
 	function KiemTraDieuKhoan() {
 		if(document.getElementById("dongYDieuKhoan").checked) document.getElementById("submit").style.visibility="visible";
@@ -75,7 +74,8 @@
 	</div>
 	<hr>
 	<div class="col-6 container">
-		<form action="xuLyDangKi" class="form" method="post">
+		<form action="../khach-hang" class="form" method="post">
+		<input type="hidden" name="hanhDong" value="dang-ki">
 			<div class="row">
 				<div class="col-md-6">
 					<h3>Thông tin tài khoản</h3>
