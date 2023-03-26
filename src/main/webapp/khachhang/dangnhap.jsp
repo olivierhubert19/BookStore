@@ -22,7 +22,7 @@
 <%
 String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 		+ request.getContextPath();
-String baoLoi = request.getAttribute("baoLoi") + "";
+String baoLoi = session.getAttribute("baoLoi") + "";
 if (baoLoi.equals("null"))
 	baoLoi = "";
 %>

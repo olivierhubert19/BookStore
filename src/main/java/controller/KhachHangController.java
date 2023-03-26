@@ -55,12 +55,14 @@ public class KhachHangController extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("khachHang", khachHang);
 			url = "/Index.jsp";
+			RequestDispatcher rDispatcher = getServletContext().getRequestDispatcher(url);
+			rDispatcher.forward(request, response);
 		} else {
-			request.setAttribute("baoLoi", "Ten dang nhap hoac mat khau khong dung vui long nhap lai");
-			url = "/khachhang/dangnhap.jsp";
+			HttpSession session = request.getSession();
+			session.setAttribute("baoLoi", "Ten dang nhap hoac mat khau khong dung vui long nhap lai");
+			response.sendRedirect("khachhang/dangnhap.jsp");
 		}
-		RequestDispatcher rDispatcher = getServletContext().getRequestDispatcher(url);
-		rDispatcher.forward(request, response);
+		
 	}
 
 	private void dangXuat(HttpServletRequest request, HttpServletResponse response) throws IOException {
