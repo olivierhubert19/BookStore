@@ -13,7 +13,7 @@ public class KhachHangDAO implements DAOinterface<khachHang> {
 		return new KhachHangDAO();
 	}
 
-	public int ChanggeMatKhau(String tenDangNhap,String matKhauMoi) {
+	public int ChanggeMatKhau(String tenDangNhap, String matKhauMoi) {
 		try {
 			Connection con = JDBCUtil.getConnection();
 			String sql = "UPDATE khachhang SET matkhau=? WHERE tendangnhap = ?";
@@ -27,12 +27,13 @@ public class KhachHangDAO implements DAOinterface<khachHang> {
 		}
 		return 0;
 	}
-	public int ChanggeInfor(String tenDangNhap,String thongtinDoi,String thongTinMoi) {
+
+	public int ChanggeInfor(String tenDangNhap, String thongtinDoi, String thongTinMoi) {
 		try {
 			Connection con = JDBCUtil.getConnection();
-			String sql = "UPDATE khachhang SET "+thongtinDoi+"=? WHERE tendangnhap = ?";
+			String sql = "UPDATE khachhang SET " + thongtinDoi + "=? WHERE tendangnhap = ?";
 			PreparedStatement pst = con.prepareStatement(sql);
-			pst.setString(1, thongTinMoi); 
+			pst.setString(1, thongTinMoi);
 			pst.setString(2, tenDangNhap);
 			System.out.println(pst.toString());
 			int rs = pst.executeUpdate();
@@ -42,7 +43,7 @@ public class KhachHangDAO implements DAOinterface<khachHang> {
 		}
 		return 0;
 	}
-	
+
 	public boolean ContainsTenDangNhap(String s) {
 		try {
 			Connection con = JDBCUtil.getConnection();
@@ -63,35 +64,35 @@ public class KhachHangDAO implements DAOinterface<khachHang> {
 		return true;
 	}
 
-	public khachHang ContainsAccount(String tenDangNhap,String matKhauString) {
+	public khachHang ContainsAccount(String tenDangNhap, String matKhauString) {
 		try {
-		Connection con = JDBCUtil.getConnection();
-		String sql = "SELECT * FROM khachhang WHERE tendangnhap= ? AND matkhau= ?";
-		PreparedStatement pst = con.prepareStatement(sql);
-		pst.setString(1, tenDangNhap);
-		pst.setString(2, matKhauString);
-		ResultSet rs = pst.executeQuery();
-		
-		if (rs.next()) {
-			String makhachHang = rs.getString("makhachHang");
-			String hovaten = rs.getString("hovaten");
-			String gioitinh = rs.getString("gioitinh");
-			String diachi = rs.getString("diachi");
-			Date ngaysinh = rs.getDate("ngaysinh");
-			String sodienthoai = rs.getString("sodienthoai");
-			String email = rs.getString("email");
-			String dangkinhanemail = rs.getString("dangkinhanemail");
-			return (new khachHang(makhachHang, tenDangNhap, matKhauString, hovaten, gioitinh, diachi, ngaysinh,
-					sodienthoai, email, dangkinhanemail));
+			Connection con = JDBCUtil.getConnection();
+			String sql = "SELECT * FROM khachhang WHERE tendangnhap= ? AND matkhau= ?";
+			PreparedStatement pst = con.prepareStatement(sql);
+			pst.setString(1, tenDangNhap);
+			pst.setString(2, matKhauString);
+			ResultSet rs = pst.executeQuery();
+
+			if (rs.next()) {
+				String makhachHang = rs.getString("makhachHang");
+				String hovaten = rs.getString("hovaten");
+				String gioitinh = rs.getString("gioitinh");
+				String diachi = rs.getString("diachi");
+				Date ngaysinh = rs.getDate("ngaysinh");
+				String sodienthoai = rs.getString("sodienthoai");
+				String email = rs.getString("email");
+				String dangkinhanemail = rs.getString("dangkinhanemail");
+				return (new khachHang(makhachHang, tenDangNhap, matKhauString, hovaten, gioitinh, diachi, ngaysinh,
+						sodienthoai, email, dangkinhanemail));
+			}
+			return null;
+
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 		return null;
-		
 	}
-	catch (Exception e) {
-		// TODO: handle exception
-	}
-		return null;
-	}
+
 	@Override
 	public ArrayList<khachHang> selectAll() {
 		try {
@@ -142,8 +143,11 @@ public class KhachHangDAO implements DAOinterface<khachHang> {
 				String sodienthoai = rs.getString("sodienthoai");
 				String email = rs.getString("email");
 				String dangkinhanemail = rs.getString("dangkinhanemail");
-				return (new khachHang(makhachHang, tenDangNhap, matkhau, hovaten, gioitinh, diachi, ngaysinh,
-						sodienthoai, email, dangkinhanemail));
+				String maxacthuc = rs.getString("maxacthuc");
+				Date thoigianhieuluccuama = rs.getDate("thoigianhieuluccuama");
+				boolean trangthaicuamaxacthuc = rs.getBoolean("trangthaicuamaxacthuc");
+				return (new khachHang(makhachHang, tenDangNhap, matkhau, hovaten, gioitinh, diachi, ngaysinh, sodienthoai, email, dangkinhanemail, maxacthuc, thoigianhieuluccuama, trangthaicuamaxacthuc)
+						);
 			}
 		} catch (Exception e) {
 
@@ -168,7 +172,7 @@ public class KhachHangDAO implements DAOinterface<khachHang> {
 			pst.setString(8, t.getSoDienThoai());
 			pst.setString(9, t.getEmail());
 			pst.setString(10, t.getdangKiNhanEmail());
-
+		
 			int res = pst.executeUpdate();
 			return res;
 		} catch (Exception e) {
@@ -226,4 +230,21 @@ public class KhachHangDAO implements DAOinterface<khachHang> {
 		}
 		return 0;
 	}
+	public int updateVerifyInformation(khachHang t) {
+		try {
+			Connection con = JDBCUtil.getConnection();
+			String url = "UPDATE khachhang SET maxacthuc=?,thoigianhieuluccuama=?,trangthaicuamaxacthuc=? WHERE makhachhang = ?;";
+			PreparedStatement pst = con.prepareStatement(url);
+			pst.setString(1, t.getMaXacThuc());
+			pst.setDate(2, t.getThoiGianHieuLucCuaMaXacThuc());
+			pst.setBoolean(3, t.isTrangThaiXacThuc());
+			pst.setString(4,t.getMaKhachHang());
+			int res = pst.executeUpdate();
+			return res;
+		} catch (Exception e) {
+
+		}
+		return 0;
+	}
+
 }

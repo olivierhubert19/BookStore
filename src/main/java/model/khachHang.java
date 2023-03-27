@@ -13,7 +13,9 @@ public class khachHang {
 	private String soDienThoai;
 	private String email;
 	private String dangKiNhanEmail;
-	
+	private String maXacThuc;
+	private Date thoiGianHieuLucCuaMaXacThuc;
+	private boolean trangThaiXacThuc;
 
 	public khachHang(String maKhachHang) {
 		super();
@@ -24,6 +26,25 @@ public class khachHang {
 		super();
 		this.maKhachHang = maKhachHang;
 		this.matKhau = matKhau;
+	}
+	
+	public khachHang(String maKhachHang, String tenDangNhap, String matKhau, String hoVaTen, String gioiTinh,
+			String diachi, Date ngaySinh, String soDienThoai, String email, String dangKiNhanEmail, String maXacThuc,
+			Date thoiGianHieuLucCuaMaXacThuc, boolean trangThaiXacThuc) {
+		super();
+		this.maKhachHang = maKhachHang;
+		this.tenDangNhap = tenDangNhap;
+		this.matKhau = matKhau;
+		this.hoVaTen = hoVaTen;
+		this.gioiTinh = gioiTinh;
+		this.diachi = diachi;
+		this.ngaySinh = ngaySinh;
+		this.soDienThoai = soDienThoai;
+		this.email = email;
+		this.dangKiNhanEmail = dangKiNhanEmail;
+		this.maXacThuc = maXacThuc;
+		this.thoiGianHieuLucCuaMaXacThuc = thoiGianHieuLucCuaMaXacThuc;
+		this.trangThaiXacThuc = trangThaiXacThuc;
 	}
 
 	@Override
@@ -131,6 +152,34 @@ public class khachHang {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getMaXacThuc() {
+		return maXacThuc;
+	}
+
+	public void setMaXacThuc(String maXacThuc) {
+		this.maXacThuc = maXacThuc;
+	}
+
+	public Date getThoiGianHieuLucCuaMaXacThuc() {
+		return thoiGianHieuLucCuaMaXacThuc;
+	}
+
+	public void setThoiGianHieuLucCuaMaXacThuc(Date thoiGianHieuLucCuaMaXacThuc) {
+		this.thoiGianHieuLucCuaMaXacThuc = thoiGianHieuLucCuaMaXacThuc;
+	}
+
+	public boolean isTrangThaiXacThuc() {
+		return trangThaiXacThuc;
+	}
+
+	public void setTrangThaiXacThuc(boolean trangThaiXacThuc) {
+		this.trangThaiXacThuc = trangThaiXacThuc;
+	}
+
+	public String getDangKiNhanEmail() {
+		return dangKiNhanEmail;
 	}
 
 
