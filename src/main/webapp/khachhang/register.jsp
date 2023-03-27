@@ -68,13 +68,15 @@
 	
 		String baoLoiString =(String) request.getAttribute("baoLoiString")+"";
 		if(baoLoiString.equals("null")) baoLoiString="";
+		String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+		+ request.getContextPath();
 	%>
 	<div class="text-center">
 		<h1>ĐĂNG KÍ TÀI KHOẢN</h1>
 	</div>
 	<hr>
 	<div class="col-6 container">
-		<form action="../khach-hang" class="form" method="post">
+		<form action="<%= url %>/khach-hang" class="form" method="post">
 		<input type="hidden" name="hanhDong" value="dang-ki">
 			<div class="row">
 				<div class="col-md-6">

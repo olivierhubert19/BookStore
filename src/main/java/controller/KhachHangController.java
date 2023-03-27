@@ -28,6 +28,7 @@ public class KhachHangController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String hanhDong = request.getParameter("hanhDong");
+		System.out.println(hanhDong);
 		if (hanhDong.equals("dang-nhap")) {
 			dangNhap(request, response);
 		} else if (hanhDong.equals("dang-xuat")) {
@@ -82,24 +83,32 @@ public class KhachHangController extends HttpServlet {
 		Password = MaHoa.toSHA1(Password);
 		String url = "";
 		khachHang khachHang = KhachHangDAO.GetNew().ContainsAccount(tenDangNhap, Password);
-		if (khachHang != null&&khachHang.isTrangThaiXacThuc()) {
+		
+		if(khachHang==null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("baoLoi", "Ten dang nhap hoac mat khau khong dung vui long nhap lai");
+			url="/khachhang/dangnhap.jsp";
+			response.sendRedirect(url);
+			
+		}
+		else if (khachHang.isTrangThaiXacThuc()) {
 			HttpSession session = request.getSession();
 			session.setAttribute("khachHang", khachHang);
 			url = "/Index.jsp";
-			RequestDispatcher rDispatcher = getServletContext().getRequestDispatcher(url);
-			rDispatcher.forward(request, response);
+			RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
+			rd.forward(request, response);
 		} else if(!khachHang.isTrangThaiXacThuc()) {
 			HttpSession session = request.getSession();
-			session.setAttribute("baoLoi", "Vui long xac nhan email");
-			response.sendRedirect("khachhang/dangnhap.jsp");
+			session.setAttribute("baoLoi", "Vui long xac thuc email");
+			url="/khachhang/dangnhap.jsp";
+			response.sendRedirect(url);
 		}
-		else {
-			HttpSession session = request.getSession();
-			session.setAttribute("baoLoi", "Ten dang nhap hoac mat khau khong dung vui long nhap lai");
-			response.sendRedirect("khachhang/dangnhap.jsp");
-		}
-		
+		else {	HttpSession session = request.getSession();
+		session.setAttribute("baoLoi", "Loi thu 3");
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/khachhang/dangnhap.jsp");
+		rd.forward(request, response);
 	}
+}
 
 	private void dangXuat(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		HttpSession session = request.getSession();

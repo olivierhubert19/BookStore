@@ -47,10 +47,12 @@ public class khachHang {
 		this.trangThaiXacThuc = trangThaiXacThuc;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "khachHang [maKhachHang=" + maKhachHang + ", hoVaTen=" + hoVaTen + ", diachi=" + diachi
-				+ ", soDienThoai=" + soDienThoai + "]";
+		return "khachHang [tenDangNhap=" + tenDangNhap + ", matKhau=" + matKhau + ", hoVaTen=" + hoVaTen
+				+ ", maXacThuc=" + maXacThuc + ", trangThaiXacThuc=" + trangThaiXacThuc + "]";
 	}
 
 	public String getDiachi() {
